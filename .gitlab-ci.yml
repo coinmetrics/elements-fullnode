@@ -5,8 +5,13 @@ services:
 docker_image:
   stage: build
   script:
-  - ./build.sh
+  - export VERSION=$(cat version.txt)
+  - echo "Building image version ${VERSION}."
+  - echo "Project path ${CI_PROJECT_PATH}"
+  - docker build --build-arg "VERSION=${VERSION}" -t "${CI_PROJECT_PATH}:${VERSION}" .
   tags:
   - shared
   - linux
   - docker
+
+#TODO: push
