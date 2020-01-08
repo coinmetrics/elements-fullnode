@@ -13,7 +13,7 @@ echo "Image ready."
 
 pushimage() {
 
-    DOCKER_REGISTRY_REPO="$1"
+    DOCKER_REGISTRY="$1"
     DOCKER_REGISTRY_USER="$2"
     DOCKER_REGISTRY_PASSWORD="$3"
     IMAGENAME="$4"
@@ -31,7 +31,7 @@ pushimage() {
 
 }
 
-pushimage "${DOCKER_REGISTRY}"  "${DOCKER_REGISTRY_USER}" "${DOCKER_REGISTRY_PASSWORD}""${IMAGENAME}" "${VERSION}" "${DOCKER_REGISTRY_REPO}"
-pushimage "registry.gitlab.com" "gitlab-ci-token"         "${CI_BUILD_TOKEN}"          "${IMAGENAME}" "${VERSION}" "registry.gitlab.com/${CI_PROJECT_PATH}"
-pushimage "index.docker.io"     "${DOCKERHUB_USER}"       "${DOCKERHUB_PASSWORD}"      "${IMAGENAME}" "${VERSION}" "index.docker.io/${CI_PROJECT_PATH}"
+pushimage "${DOCKER_REGISTRY}"  "${DOCKER_REGISTRY_USER}" "${DOCKER_REGISTRY_PASSWORD}" "${IMAGENAME}" "${VERSION}" "${DOCKER_REGISTRY_REPO}"
+pushimage "registry.gitlab.com" "gitlab-ci-token"         "${CI_BUILD_TOKEN}"           "${IMAGENAME}" "${VERSION}" "registry.gitlab.com/${CI_PROJECT_PATH}"
+pushimage "index.docker.io"     "${DOCKERHUB_USER}"       "${DOCKERHUB_PASSWORD}"       "${IMAGENAME}" "${VERSION}" "index.docker.io/${CI_PROJECT_PATH}"
 
